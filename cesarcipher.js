@@ -19,22 +19,32 @@
 function rot13(str) {
     list1 = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
     a = 'ssss'
-    a.
-    for (let index = 0; index < array.length; index++;) {
-        index_added = index + 13
-        if(index_added > array.length){
-            index_added = array.length - index 
+    new_string = []
+    str = str.split("")
+    for (let index = 0; index < str.length; index++) {
+        const element = str[index];
+        if(list1.includes(element)){
+            ele_index = (list1.indexOf(element) + 13) % 26
+            
+            new_string.push(list1[ele_index])
+        }
+        else{
+            new_string.push(str[index])
         }
         
+    }
+    a = ''
+    for (let index = 0; index < new_string.length; index++) {
+        const element = new_string[index];
+        a = a + element;
         
     }
-
-  return str;
+  return a;
 }
-
-rot13("SERR PBQR PNZC");
 
 /**
 * Your test output will go here
 */
 /* Navigated to Learn JavaScript Algorithms and Data Structures Projects: Caesars Cipher | freeCodeCamp.org */
+console.log(rot13("GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT.")
+);
